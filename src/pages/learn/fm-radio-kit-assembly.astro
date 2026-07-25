@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="FM Radio Kit Assembly Instructions" description="Step-by-step assembly instructions for the ScoutMakes FM Radio Kit.">
+  <p class="eyebrow">Learn</p>
+  <h1>ScoutMakes FM Radio Kit Assembly Instructions</h1>
+  <p class="lede">
+    Assembly steps for the <a href="/products/fm-radio-kit">ScoutMakes FM Radio Kit</a>, including RDS decoding
+    and optional Bluetooth control.
+  </p>
+
+  <p><a href="https://github.com/tinkeringtech/scoutmakes">FM radio kit design files and example source code →</a></p>
+
+  <div class="steps">
+    <div class="step">
+      <h3>Step 1</h3>
+      <p>Unwrap the kit and lay out the various components. The provided USB cable programs the Azul and also
+      charges the Lithium Polymer battery — the Azul has battery-charging circuitry built in.</p>
+    </div>
+    <div class="step">
+      <h3>Step 2</h3>
+      <p>Place and solder the headers on the Azul Bluetooth board.
+      <span class="warn">The long side of the headers must be under the board.</span></p>
+    </div>
+    <div class="step">
+      <h3>Step 3</h3>
+      <p>Place and solder the headers on the FM board.
+      <span class="warn">The long side of the headers must be on top of the board.</span></p>
+    </div>
+    <div class="step">
+      <h3>Step 4</h3>
+      <p>Unfurl and solder the antenna wire onto the antenna header hole on the FM board.</p>
+    </div>
+    <div class="step">
+      <h3>Step 5</h3>
+      <p>Connect headphones to the FM board.</p>
+    </div>
+    <div class="step">
+      <h3>Step 6</h3>
+      <p>Connect the Azul Bluetooth board to the FM board, lining up the headers before pressing the two boards
+      together. The battery tucks in between them.</p>
+    </div>
+    <div class="step">
+      <h3>Step 7</h3>
+      <p>Power on by sliding the ON/OFF switch to ON — LEDs on the Azul indicate power. The kit ships with an FM
+      demo program tuned to 99.5&nbsp;MHz. If that's not a usable frequency in your area, press button 1 to scan
+      for other stations.</p>
+      <table>
+        <thead><tr><th>Button</th><th>Function</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Seek up</td></tr>
+          <tr><td>2</td><td>Seek down</td></tr>
+          <tr><td>3</td><td>Mute audio</td></tr>
+          <tr><td>4</td><td>Preset up</td></tr>
+          <tr><td>5</td><td>Volume up</td></tr>
+          <tr><td>6</td><td>Volume down</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="step">
+      <h3>Step 8 — Optional: Bluetooth control</h3>
+      <p>The Azul ships with a test program loaded, showing the default 99.5&nbsp;MHz frequency on power-up.
+      Connect using the Adafruit Bluefruit Connect app (Android or iOS) — with the system powered on, tap
+      through steps 1–4 in the app to connect.</p>
+    </div>
+    <div class="step">
+      <h3>Step 9 — Optional: hack the code</h3>
+      <p>Modify the CircuitPython code on the Azul using the Mu editor. Connect the supplied USB cable and the
+      Azul shows up as a drive named <code>CIRCUITPY</code>. Load <code>code.py</code> into Mu to edit the
+      program. You can also open a serial console in Mu for a live user menu — press
+      <code>Ctrl+C</code> then <code>Ctrl+D</code> to restart and show the menu:</p>
+      <table>
+        <tbody>
+          <tr><td><code>+</code></td><td>Increase volume</td></tr>
+          <tr><td><code>-</code></td><td>Decrease volume</td></tr>
+          <tr><td><code>&gt;</code></td><td>Next preset</td></tr>
+          <tr><td><code>&lt;</code></td><td>Previous preset</td></tr>
+          <tr><td><code>.</code></td><td>Scan up</td></tr>
+          <tr><td><code>,</code></td><td>Scan down</td></tr>
+          <tr><td><code>f</code></td><td>Direct frequency input, e.g. <code>f 9950</code> for 99.5 MHz</td></tr>
+          <tr><td><code>i</code></td><td>Station status</td></tr>
+          <tr><td><code>s</code></td><td>Mono/stereo mode</td></tr>
+          <tr><td><code>b</code></td><td>Bass boost</td></tr>
+          <tr><td><code>u</code></td><td>Mute/unmute</td></tr>
+          <tr><td><code>r</code></td><td>RSSI signal strength (lower is better)</td></tr>
+          <tr><td><code>e</code></td><td>Soft reset chip</td></tr>
+          <tr><td><code>q</code></td><td>Stop the program</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</BaseLayout>

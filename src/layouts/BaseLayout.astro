@@ -1,0 +1,157 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Open source, CircuitPython-compatible STEM electronics kits and breakout boards designed by TinkeringTech.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} · ScoutMakes</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="28" height="28">
+            <polygon points="24,2 44,13 44,35 24,46 4,35 4,13" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+            <circle cx="24" cy="24" r="6" fill="var(--accent)"/>
+          </svg>
+        </span>
+        <span class="brand-name">ScoutMakes</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/products/fm-radio-board">FM Radio Board</a>
+        <a href="/products/fm-radio-kit">FM Radio Kit</a>
+        <a href="/products/robot-kit">Robot Kit</a>
+        <a href="/learn">Learn</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p>ScoutMakes is an open-hardware brand by TinkeringTech LLC. Designs are OSHWA-certified and open source.</p>
+      <p class="footer-links">
+        <a href="https://github.com/tinkeringtech/scoutmakes">Design files on GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="/contact">Contact</a>
+      </p>
+    </footer>
+
+    <style is:global>
+      :root {
+        --bg: #0f1512;
+        --bg-panel: #161f1a;
+        --ink: #eef4f0;
+        --ink-dim: #9fb3a8;
+        --accent: #4fd1a5;
+        --accent-dim: #2c7a5c;
+        --rule: #26332c;
+        --radius: 10px;
+        --font-display: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+        --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-display);
+        line-height: 1.55;
+      }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 1.25rem 2rem;
+        border-bottom: 1px solid var(--rule);
+        flex-wrap: wrap;
+      }
+      .brand { display: flex; align-items: center; gap: 0.6rem; color: var(--ink); }
+      .brand:hover { text-decoration: none; }
+      .brand-name {
+        font-family: var(--font-mono);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        font-size: 1.15rem;
+      }
+      .site-nav { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.95rem; }
+      .site-nav a { color: var(--ink-dim); }
+      .site-nav a:hover { color: var(--accent); }
+
+      main { max-width: 880px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+
+      .site-footer {
+        border-top: 1px solid var(--rule);
+        padding: 2rem;
+        text-align: center;
+        color: var(--ink-dim);
+        font-size: 0.85rem;
+      }
+      .footer-links { margin-top: 0.4rem; }
+      .footer-links span { margin: 0 0.5rem; }
+
+      h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
+      h1 { font-size: 2.1rem; margin-bottom: 0.4rem; }
+      .eyebrow {
+        font-family: var(--font-mono);
+        color: var(--accent);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .lede { color: var(--ink-dim); font-size: 1.1rem; }
+
+      .spec-list { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; gap: 0.5rem; }
+      .spec-list li {
+        border-left: 2px solid var(--accent-dim);
+        padding: 0.15rem 0 0.15rem 0.9rem;
+        color: var(--ink-dim);
+      }
+
+      .buy-panel {
+        background: var(--bg-panel);
+        border: 1px solid var(--rule);
+        border-radius: var(--radius);
+        padding: 1.25rem 1.5rem;
+        margin: 2rem 0;
+      }
+      .buy-panel h2 { margin-top: 0; font-size: 1rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-dim); }
+      .buy-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem; }
+      .buy-links a {
+        border: 1px solid var(--accent-dim);
+        border-radius: 999px;
+        padding: 0.45rem 1rem;
+        color: var(--ink);
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+      }
+      .buy-links a:hover { border-color: var(--accent); text-decoration: none; background: rgba(79,209,165,0.1); }
+
+      .steps { display: grid; gap: 1.25rem; margin: 1.5rem 0; }
+      .step { border-bottom: 1px solid var(--rule); padding-bottom: 1.1rem; }
+      .step h3 { font-size: 1rem; font-family: var(--font-mono); color: var(--accent); margin: 0 0 0.35rem; }
+      .warn { color: #e0b04a; font-weight: 600; }
+
+      code, .cmd { font-family: var(--font-mono); background: var(--bg-panel); padding: 0.1rem 0.4rem; border-radius: 4px; }
+      table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+      th, td { text-align: left; padding: 0.4rem 0.7rem; border-bottom: 1px solid var(--rule); font-size: 0.95rem; }
+      th { color: var(--ink-dim); font-family: var(--font-mono); font-weight: 500; }
+    </style>
+  </body>
+</html>

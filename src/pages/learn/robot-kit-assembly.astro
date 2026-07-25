@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Robot Kit Assembly Instructions" description="Step-by-step assembly instructions for the ScoutMakes Robot Kit.">
+  <p class="eyebrow">Learn</p>
+  <h1>ScoutMakes Robot Kit Assembly Instructions</h1>
+  <p class="lede">
+    Assemble the <a href="/products/robot-kit">ScoutMakes Robot Kit</a> — an open source, Bluetooth-controlled
+    robot kit that teaches the basics of robotics.
+  </p>
+
+  <p><a href="https://github.com/tinkeringtech/scoutmakes">Design files and robot example source code →</a></p>
+
+  <div class="steps">
+    <div class="step">
+      <h3>Step 1</h3>
+      <p>Unwrap the kit and lay out the various components. The provided USB cable programs the Azul and also
+      charges the Lithium Polymer battery — the Azul has battery-charging circuitry built in.</p>
+    </div>
+    <div class="step">
+      <h3>Step 2</h3>
+      <p>Place and solder the headers on the Azul Bluetooth board.
+      <span class="warn">Pay close attention to header orientation: the long side of the headers must be under the board.</span></p>
+    </div>
+    <div class="step">
+      <h3>Step 3</h3>
+      <p>Place and solder the headers on the Robot board.
+      <span class="warn">The long side of the headers must be on top of the board.</span></p>
+    </div>
+    <div class="step">
+      <h3>Step 4</h3>
+      <p>Assemble the robot chassis by bringing the two plastic pieces together, lining up the sides.</p>
+    </div>
+    <div class="step">
+      <h3>Step 5</h3>
+      <p>Insert the two long screws into the holes and tighten the nuts on the underside of the chassis. You'll
+      need a Phillips screwdriver and a pair of pliers to hold the nut while it's tightened.</p>
+    </div>
+    <div class="step">
+      <h3>Step 6</h3>
+      <p>Slide the two motors into the motor slots — they slide in easily and there's no specific orientation
+      required.</p>
+    </div>
+    <div class="step">
+      <h3>Step 7</h3>
+      <p>Connect the motor wires to the robot board with the board's TOP facing up. Line up R-to-R and L-to-L
+      with the chassis and board. The motor connectors only insert in one direction, so there's no risk of
+      reversing the connection.</p>
+    </div>
+    <div class="step">
+      <h3>Step 8</h3>
+      <p>Screw the robot board into the chassis using the four short screws provided, making sure the L/R
+      orientation is correct first.</p>
+    </div>
+    <div class="step">
+      <h3>Step 9</h3>
+      <p>Press-fit the two ball bearings onto the caster holders.</p>
+    </div>
+    <div class="step">
+      <h3>Step 10</h3>
+      <p>Install the wheels onto the motors — they press-fit onto the motor shaft. Line up the flat surfaces on
+      the motor and wheel, then press.</p>
+    </div>
+    <div class="step">
+      <h3>Step 11</h3>
+      <p>Connect the Azul Bluetooth board to the robot board, lining up the headers before press-fitting the two
+      boards together. The LiPo battery tucks between the two boards.</p>
+    </div>
+    <div class="step">
+      <h3>Step 12</h3>
+      <p>The Azul ships with a test program already loaded. Flip the slide switch to ON and the OLED screen
+      shows "Robot Ready." Connect to the robot using the Adafruit Bluefruit Connect app (Android or iOS) — with
+      the robot powered on, tap through steps 1–4 in the app to connect.</p>
+    </div>
+    <div class="step">
+      <h3>Step 13 — Optional: hack the code</h3>
+      <p>Modify the CircuitPython code on the Azul using the Mu editor. Connect the supplied USB cable and the
+      Azul shows up as a drive on your computer named <code>CIRCUITPY</code>. Load <code>code.py</code> into Mu
+      to edit the program (Load button in the Mu menu, then navigate to the Azul drive).</p>
+    </div>
+  </div>
+</BaseLayout>

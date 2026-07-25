@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="FM Radio Board — Qwiic/STEMMA I2C" description="Open source I2C FM radio breakout board for the RDA5807 chip, Qwiic/STEMMA QT compatible, Arduino and CircuitPython support.">
+  <p class="eyebrow">Breakout Board · OSHWA US002137</p>
+  <h1>ScoutMakes FM Radio Board — Qwiic/STEMMA I2C</h1>
+  <p class="lede">
+    An I2C breakout board for the RDA5807 FM radio chip by RDA Microelectronics, supporting Arduino and
+    CircuitPython, with RDS (Radio Data System) capability for station and song information.
+  </p>
+
+  <p>
+    The board carries connectors supporting SparkFun's Qwiic and Adafruit's STEMMA QT I2C standards (JST SH
+    4-pin), so it drops straight into either ecosystem. It ships with a 4-post header for breadboarding and a
+    770&nbsp;mm 24&nbsp;AWG antenna wire.
+  </p>
+
+  <p>
+    The board is open source with design files provided, designed and manufactured in the USA, and certified by
+    the Open Source Hardware Association (OSHWA&nbsp;US002137). This is the first FM radio breakout that
+    supports CircuitPython and is STEMMA QT/Qwiic compatible.
+  </p>
+
+  <ul class="spec-list">
+    <li>Qwiic/STEMMA QT compatible — JST SH 4-pin connectors</li>
+    <li>Runs on the I2C standard, default address 0x11</li>
+    <li>Supports Arduino and CircuitPython</li>
+    <li>3–5V DC compatible</li>
+    <li>RDS data and a user menu provided via example code</li>
+    <li>ENIG RoHS-compliant PCB</li>
+    <li>Power LED (trace can be cut to disable for power saving)</li>
+    <li>3.5&nbsp;mm headphone jack</li>
+  </ul>
+
+  <p>
+    Example code exposes a full serial user menu: volume up/down, next/previous preset, scan up/down, direct
+    frequency input, station status, mono/stereo mode, bass boost, mute/unmute, RSSI signal data, and soft reset.
+  </p>
+
+  <p><em>Headphones and STEMMA QT/Qwiic cables are not included. A short 770&nbsp;mm/30.31&nbsp;in wire makes a
+  good antenna — typically 1/4 the wavelength of the tuned frequency.</em></p>
+
+  <div class="buy-panel">
+    <h2>Where to buy</h2>
+    <p>Sold through our distributor network — pricing and stock vary by region.</p>
+    <div class="buy-links">
+      <a href="https://www.adafruit.com/">Adafruit</a>
+      <a href="https://www.tindie.com/stores/tinkeringtech/">Tindie</a>
+      <a href="https://thepihut.com/">The Pi Hut</a>
+    </div>
+  </div>
+</BaseLayout>
