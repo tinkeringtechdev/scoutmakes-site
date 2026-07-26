@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="DRV5011 Digital-Latch Hall Effect Sensor Breakout" description="Open source digital-latch Hall effect sensor breakout built around the TI DRV5011, ideal for rotation and direction sensing, JST-PH 3-pin, CircuitPython ready.">
+  <p class="eyebrow">Breakout Board · OSHWA Certification Pending</p>
+  <h1>ScoutMakes DRV5011 Digital-Latch Hall Effect Sensor Breakout</h1>
+  <p class="lede">
+    Detect rotation and direction with ease using the ScoutMakes DRV5011 Digital-Latch Hall Effect Sensor
+    Breakout — a compact, beginner-friendly board built around Texas Instruments' ultra-low-power DRV5011
+    digital-latch Hall effect sensor.
+  </p>
+
+  <p>
+    Whether you're building a rotary encoder, sensing motor position, or adding contactless direction
+    detection to your next project, this breakout gets you up and running in minutes.
+  </p>
+
+  <img src="/images/products/drv5011-board.png" alt="DRV5011 Digital-Latch Hall Effect Sensor Breakout PCB layout" />
+  <img src="/images/products/drv5011-schematic.png" alt="DRV5011 Digital-Latch Hall Effect Sensor Breakout schematic diagram" />
+
+  <ul class="spec-list">
+    <li>Ultra-low power — designed for battery-sensitive and always-on applications</li>
+    <li>Digital-latch behavior — output drives low when a south pole is detected and stays low until a north pole is applied, then drives high (and vice versa) — ideal for tracking direction, not just presence</li>
+    <li>Push-pull CMOS output — no pull-up resistor required, keeping wiring simple</li>
+    <li>JST-PH 3-pin connector — plug-and-play wiring, no soldering required for compatible systems</li>
+    <li>CircuitPython ready — works out of the box with CircuitPython-compatible boards</li>
+    <li>Breadboard friendly — standard 0.1&quot; header pitch for easy prototyping</li>
+  </ul>
+
+  <p>
+    Works great with Adafruit's line of boards, Raspberry Pi, Arduino, and any microcontroller with a 3.3V or
+    5V digital input. See the
+    <a href="https://www.ti.com/product/DRV5011">TI DRV5011 product page</a> for the underlying sensor datasheet.
+  </p>
+
+  <p>
+    <strong>Latch behavior:</strong> unlike an omnipolar switch, the DRV5011 requires alternating north and
+    south poles to toggle its output — a single pole won't cause it to switch back on its own. This makes it
+    well suited for rotary and incremental encoding applications (e.g. BLDC motor sensing, wheel speed, knob
+    turning) where the sensor needs to register direction of magnetic pole transitions rather than simple
+    presence/absence.
+  </p>
+
+  <p>
+    <strong>A note on sensor variant:</strong> the DRV5011 comes in several variants (package type and
+    threshold sensitivity) that may change between production runs as component availability evolves. Always
+    check the markings on the IC or the product page for the variant shipped with your order, and refer to the
+    TI DRV5011 datasheet for full variant specifications before designing around a specific threshold. The
+    current version (as of July 2026) ships with the DRV5011ADDBZR variant.
+  </p>
+
+  <p>
+    Design files, schematics, and CircuitPython example code are open source on
+    <a href="https://github.com/tinkeringtech/DRV5011-Hall-Sensor">GitHub</a>.
+  </p>
+
+  <div class="buy-panel">
+    <h2>Availability</h2>
+    <p>Not yet listed with our distributor partners — the design is open source and available now on GitHub.</p>
+    <div class="buy-links">
+      <a href="https://github.com/tinkeringtech/DRV5011-Hall-Sensor">Design files on GitHub</a>
+    </div>
+  </div>
+</BaseLayout>
