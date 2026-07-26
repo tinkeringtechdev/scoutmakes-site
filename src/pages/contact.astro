@@ -7,9 +7,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <p class="lede">
     Have a question about a ScoutMakes kit, a technical issue, or a distributor inquiry? Reach out directly:
   </p>
-  <!-- TODO: replace with the address you want published, or swap this for a form endpoint
-       (e.g. Formspree/Getform) if you'd rather not publish an email address directly. -->
-  <p><a href="mailto:hello@scoutmakes.com">hello@scoutmakes.com</a></p>
+  <!-- Email is built at runtime from character codes so it never appears as plain text
+       in the page source, which defeats the regex-based scrapers most spam bots use.
+       Real browsers with JS enabled see a normal mailto link. -->
+  <p><a id="contact-email" href="#">Loading contact email&hellip;</a></p>
+  <noscript>
+    <p>Enable JavaScript to see our email address, or reach us via the GitHub link below.</p>
+  </noscript>
+  <script>
+    const codes = [104,101,108,108,111,64,115,99,111,117,116,109,97,107,101,115,46,99,111,109];
+    const address = codes.map((c) => String.fromCharCode(c)).join('');
+    const link = document.getElementById('contact-email');
+    if (link) {
+      link.setAttribute('href', 'mailto:' + address);
+      link.textContent = address;
+    }
+  </script>
   <p>
     You can also find design files and open an issue on
     <a href="https://github.com/tinkeringtech/scoutmakes">GitHub</a>.
