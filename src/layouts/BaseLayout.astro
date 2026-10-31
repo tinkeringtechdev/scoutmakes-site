@@ -25,14 +25,22 @@ const { title, description = 'Open source, CircuitPython-compatible STEM electro
         </span>
         <span class="brand-name">ScoutMakes</span>
       </a>
-      <nav class="site-nav">
+      <nav class="site-nav" aria-label="Main">
         <a href="/">Home</a>
-        <a href="/products/fm-radio-board">FM Radio Board</a>
-        <a href="/products/fm-radio-kit">FM Radio Kit</a>
-        <a href="/products/robot-kit">Robot Kit</a>
-        <a href="/products/drv5032-hall-sensor">DRV5032 Digital Hall Sensor</a>
-        <a href="/products/drv5011-hall-sensor">DRV5011 Latch Hall Sensor</a>
-        <a href="/products/rf-remote-receiver">RF Remote Receiver</a>
+        <details class="nav-menu">
+          <summary>Products</summary>
+          <div class="nav-menu-panel">
+            <p class="nav-menu-label">Kits</p>
+            <a href="/products/fm-radio-kit">FM Radio Kit</a>
+            <a href="/products/robot-kit">Robot Kit</a>
+            <p class="nav-menu-label">Breakout boards</p>
+            <a href="/products/fm-radio-board">FM Radio Board</a>
+            <a href="/products/drv5032-hall-sensor">DRV5032 Digital Hall Sensor</a>
+            <a href="/products/drv5011-hall-sensor">DRV5011 Latch Hall Sensor</a>
+            <a href="/products/rf-remote-receiver">RF Remote Receiver <span class="nav-tag">Soon</span></a>
+            <a class="nav-menu-all" href="/#products">All products &rarr;</a>
+          </div>
+        </details>
         <a href="/learn">Learn</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
@@ -102,6 +110,69 @@ const { title, description = 'Open source, CircuitPython-compatible STEM electro
       .site-nav { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.95rem; }
       .site-nav a { color: var(--ink-dim); }
       .site-nav a:hover { color: var(--accent); }
+      .site-nav { align-items: center; }
+      .nav-menu { position: relative; }
+      .nav-menu summary {
+        list-style: none;
+        cursor: pointer;
+        color: var(--ink-dim);
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+      .nav-menu summary::-webkit-details-marker { display: none; }
+      .nav-menu summary::after {
+        content: '';
+        width: 0.4em;
+        height: 0.4em;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: translateY(-0.15em) rotate(45deg);
+        transition: transform 0.15s ease;
+      }
+      .nav-menu[open] summary::after { transform: translateY(0.1em) rotate(-135deg); }
+      .nav-menu summary:hover, .nav-menu[open] summary { color: var(--accent); }
+      .nav-menu-panel {
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+        min-width: 15rem;
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        background: var(--bg);
+        border: 1px solid var(--rule);
+        border-radius: var(--radius);
+        box-shadow: 0 10px 30px rgba(22, 33, 27, 0.12);
+      }
+      .nav-menu-panel a { padding: 0.45rem 0.7rem; border-radius: 6px; color: var(--ink); white-space: nowrap; }
+      .nav-menu-panel a:hover { background: var(--bg-panel); color: var(--accent); text-decoration: none; }
+      .nav-menu-label {
+        margin: 0.6rem 0.7rem 0.2rem;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-dim);
+      }
+      .nav-menu-label:first-child { margin-top: 0.2rem; }
+      .nav-menu-panel .nav-menu-all { margin-top: 0.35rem; border-top: 1px solid var(--rule); border-radius: 0; padding-top: 0.6rem; color: var(--accent); }
+      .nav-tag {
+        margin-left: 0.35rem;
+        padding: 0.05rem 0.4rem;
+        border-radius: 999px;
+        background: var(--accent-2);
+        color: var(--accent-2-ink);
+        font-size: 0.7rem;
+        font-weight: 600;
+      }
+      @media (max-width: 720px) {
+        .site-header { padding: 1rem 1rem; }
+        .site-nav { gap: 1rem; }
+        .nav-menu-panel { left: 0; transform: none; }
+      }
 
       main { max-width: 880px; margin: 0 auto; padding: 3rem 2rem 4rem; }
 
@@ -211,5 +282,21 @@ const { title, description = 'Open source, CircuitPython-compatible STEM electro
       th, td { text-align: left; padding: 0.4rem 0.7rem; border-bottom: 1px solid var(--rule); font-size: 0.95rem; }
       th { color: var(--ink-dim); font-family: var(--font-mono); font-weight: 500; }
     </style>
+    <script>
+      // Close the Products menu on outside click, Escape, or after choosing a link.
+      const menu = document.querySelector('.nav-menu');
+      if (menu) {
+        document.addEventListener('click', (e) => {
+          if (menu.open && !menu.contains(e.target)) menu.open = false;
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && menu.open) {
+            menu.open = false;
+            menu.querySelector('summary').focus();
+          }
+        });
+        menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => (menu.open = false)));
+      }
+    </script>
   </body>
 </html>
