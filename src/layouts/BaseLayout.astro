@@ -23,7 +23,7 @@ const { title, description = 'Open source, CircuitPython-compatible STEM electro
             <circle cx="24" cy="24" r="6" fill="var(--accent)"/>
           </svg>
         </span>
-        <span class="brand-name">ScoutMakes</span>
+        <span class="brand-name">ScoutMakes<sup class="tm">&trade;</sup></span>
       </a>
       <nav class="site-nav" aria-label="Main">
         <a href="/">Home</a>
@@ -52,7 +52,8 @@ const { title, description = 'Open source, CircuitPython-compatible STEM electro
     </main>
 
     <footer class="site-footer">
-      <p>ScoutMakes is an open-hardware brand by TinkeringTech LLC. Designs are OSHWA-certified and open source.</p>
+      <p>ScoutMakes&trade; is an open-hardware brand by TinkeringTech LLC. Designs are OSHWA-certified and open source.</p>
+      <p class="footer-legal">ScoutMakes&trade; and TinkeringTech&trade; are trademarks of TinkeringTech LLC.</p>
       <p class="footer-links">
         <a href="https://github.com/tinkeringtech/scoutmakes">Design files on GitHub</a>
         <span aria-hidden="true">·</span>
@@ -107,6 +108,8 @@ const { title, description = 'Open source, CircuitPython-compatible STEM electro
         letter-spacing: 0.02em;
         font-size: 1.15rem;
       }
+      .tm { font-size: 0.5em; font-weight: 500; margin-left: 0.1em; vertical-align: super; line-height: 0; }
+      .footer-legal { font-size: 0.8rem; color: var(--ink-dim); }
       .site-nav { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.95rem; }
       .site-nav a { color: var(--ink-dim); }
       .site-nav a:hover { color: var(--accent); }
