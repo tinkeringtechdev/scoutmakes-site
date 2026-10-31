@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="RF Remote Receiver Breakout" description="Open source 315MHz 4-channel RF remote receiver breakout with a pre-paired 4-button key fob, I2C via PCA9536 (0x41), Qwiic/STEMMA QT, CircuitPython ready.">
+  <p class="eyebrow">Breakout Board · Wireless Control</p>
+  <h1>ScoutMakes RF Remote Receiver Breakout</h1>
+  <p class="lede">
+    Add instant wireless control to your next project with the ScoutMakes RF Remote Receiver — a
+    beginner-friendly 315MHz receiver breakout that ships already paired to a 4-button remote control key fob.
+    No Bluetooth, no Wi-Fi, no pairing apps: just press a button.
+  </p>
+
+  <p>
+    Connect the board to your microcontroller over I2C and every button press on the fob becomes something
+    your code can read. Turn NeoPixels on and off, trigger sound effects, swing a servo, or start and stop a
+    motor — anything you want to control wirelessly, this board makes easy.
+  </p>
+
+  <ul class="spec-list">
+    <li>I2C control via the onboard NXP PCA9536 I/O expander — I2C address 0x41</li>
+    <li>Qwiic / STEMMA QT connectors for solderless plug-and-play wiring, plus a standard 2.54mm (0.1&quot;) header for breadboards</li>
+    <li>Prefer not to use I2C? The four receiver channels can also be wired straight to four GPIO pins</li>
+    <li>315MHz 4-channel wireless remote control receiver module</li>
+    <li>Includes a 4-button remote control key fob already paired to the receiver — works out of the box</li>
+    <li>3.3V to 5V operation</li>
+    <li>CircuitPython ready (library provided), and easy to use from MicroPython, Arduino, or any platform that speaks I2C</li>
+  </ul>
+
+  <p>
+    <strong>Why RF instead of Bluetooth or Wi-Fi?</strong> A simple RF remote needs no phone, no network, and no
+    connection setup. Power up your project and the fob just works — ideal for costumes, props, robots,
+    holiday lights, and classroom builds where you want reliable one-press control without extra complexity.
+  </p>
+
+  <p>
+    <strong>I2C or GPIO — your choice:</strong> over I2C, the PCA9536 exposes all four fob buttons through just
+    two wires, leaving your other pins free, and Qwiic/STEMMA QT lets you daisy-chain it with other sensors. If
+    you'd rather keep things as simple as possible, wire the four channel outputs directly to digital inputs and
+    read them like ordinary buttons.
+  </p>
+
+  <h2>What's in the box</h2>
+  <ul class="spec-list">
+    <li>RF Remote Receiver breakout board</li>
+    <li>4-button 315MHz remote control key fob (pre-paired)</li>
+    <li>5-pin 2.54mm header</li>
+  </ul>
+  <p>Antenna and Qwiic/STEMMA QT cable are not included.</p>
+
+  <div class="buy-panel">
+    <h2>Availability</h2>
+    <p>Coming soon to our distributor partners. Questions in the meantime? Get in touch.</p>
+    <div class="buy-links">
+      <a href="/contact">Contact us</a>
+    </div>
+  </div>
+</BaseLayout>
