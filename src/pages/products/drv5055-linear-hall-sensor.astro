@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="ScoutMakes Linear Hall Sensor DRV5055" description="Open source linear (analog) Hall effect sensor breakout built around the TI DRV5055 — measure magnetic field strength and polarity, JST-PH 3-pin, CircuitPython ready.">
+  <p class="eyebrow">Breakout Board</p>
+  <h1>ScoutMakes Linear Hall Sensor DRV5055</h1>
+  <p class="lede">
+    Go beyond "magnet or no magnet" with the ScoutMakes Linear Hall Sensor — a compact, beginner-friendly
+    breakout built around Texas Instruments' DRV5055 ratiometric linear Hall effect sensor. Instead of a simple
+    on/off signal, it outputs an analog voltage that tracks how strong the magnetic field is and which pole is
+    facing it.
+  </p>
+
+  <p>
+    Measure how close a magnet is, build a contactless joystick or slider, sense the position of a lever or
+    lid, or plot a magnet's field in real time — this breakout turns magnetism into a number your code can use.
+  </p>
+
+  <ul class="spec-list">
+    <li>Linear analog output — voltage is proportional to magnetic flux density, not just a threshold switch</li>
+    <li>Bipolar sensing — output rises above mid-supply for one pole and falls below it for the other, so you get polarity as well as strength</li>
+    <li>Ratiometric output — sits at half the supply voltage with no magnet present, and scales with the supply</li>
+    <li>3.3V or 5V operation</li>
+    <li>JST-PH 3-pin connector — plug-and-play wiring, no soldering required for compatible systems</li>
+    <li>CircuitPython ready — read it with any analog input pin</li>
+    <li>Breadboard friendly — standard 0.1&quot; header pitch for easy prototyping</li>
+  </ul>
+
+  <p>
+    <strong>How it differs from our other Hall sensors:</strong> the
+    <a href="/products/drv5032-hall-sensor">DRV5032</a> tells you a magnet is present, and the
+    <a href="/products/drv5011-hall-sensor">DRV5011</a> latches to track pole transitions for rotation. The
+    DRV5055 measures — it reports a continuous reading, so you can tell near from far, weak from strong, and
+    north from south.
+  </p>
+
+  <h2>Quick start (CircuitPython)</h2>
+  <p>Connect the signal pin to an analog input (A0 below), power the board from 3.3V, and run:</p>
+  <pre><code>import time
+import board
+import analogio
+
+hall = analogio.AnalogIn(board.A0)
+
+while True:
+    volts = hall.value * 3.3 / 65535
+    # ~1.65V means no field; above or below means north or south pole
+    print(round(volts - 1.65, 3))
+    time.sleep(0.1)</code></pre>
+
+  <p>
+    <strong>Match the supply to your ADC:</strong> because the output swings across the supply range, power the
+    board from 3.3V when using a 3.3V microcontroller so the signal never exceeds what your analog input can
+    safely read.
+  </p>
+
+  <p>
+    Works great with Adafruit's line of boards, Raspberry Pi Pico, Arduino, and any microcontroller with an
+    analog input. See the <a href="https://www.ti.com/product/DRV5055">TI DRV5055 product page</a> for the
+    underlying sensor datasheet.
+  </p>
+
+  <p>
+    <strong>A note on sensor variant:</strong> the DRV5055 comes in several sensitivity grades (A1 through A4),
+    trading resolution for measurable field range. The variant may change between production runs as component
+    availability evolves, so check the markings on the IC or the product page for the variant shipped with your
+    order, and refer to the TI DRV5055 datasheet for its exact sensitivity before designing around a specific
+    reading.
+  </p>
+
+  <div class="buy-panel">
+    <h2>Where to buy</h2>
+    <p>Distributor listings are on the way. Questions in the meantime? Get in touch.</p>
+    <div class="buy-links">
+      <a href="/contact">Contact us</a>
+    </div>
+  </div>
+</BaseLayout>
