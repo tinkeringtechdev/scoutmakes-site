@@ -1,9 +1,16 @@
 ---
+import { lastUpdated, formatUpdated } from '../lib/lastUpdated';
+
 interface Props {
   title: string;
   description?: string;
 }
 const { title, description = 'Open source, CircuitPython-compatible STEM electronics kits and breakout boards designed by TinkeringTech.' } = Astro.props;
+
+// Product pages get a "Last updated" stamp taken from the git history of their own .astro file.
+const path = Astro.url.pathname.replace(/\/$/, '');
+const isProductPage = path.startsWith('/products/');
+const updated = isProductPage ? lastUpdated(`src/pages${path}.astro`) : null;
 ---
 <!doctype html>
 <html lang="en">
@@ -50,6 +57,11 @@ const { title, description = 'Open source, CircuitPython-compatible STEM electro
 
     <main>
       <slot />
+      {updated && (
+        <p class="page-updated">
+          Last updated <time datetime={updated.toISOString()}>{formatUpdated(updated)}</time>
+        </p>
+      )}
     </main>
 
     <footer class="site-footer">
@@ -179,6 +191,12 @@ const { title, description = 'Open source, CircuitPython-compatible STEM electro
       }
 
       main { max-width: 880px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+      .page-updated {
+        margin: 2.5rem 0 0;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--ink-dim);
+      }
 
       .site-footer {
         border-top: 1px solid var(--rule);
